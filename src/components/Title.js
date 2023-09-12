@@ -1,9 +1,17 @@
 import React from "react";
 
-const Title = () => {
+const Title = ({ handleToggleDarkMode }) => {
   return (
-    <div>
-      <h1 className="title">Welcome to the Notify</h1>
+    <div className="header">
+      <h1>Welcome to the Notify</h1>
+      <button
+        className="save"
+        onClick={() =>
+          handleToggleDarkMode((previousDarkMode) => !previousDarkMode)
+        }
+      >
+        Toggle Mode
+      </button>
     </div>
   );
 };
