@@ -1,6 +1,8 @@
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import NotesList from "./components/NotesList";
+import Search from "./components/search";
+import Title from "./components/Title";
 
 const App = () => {
   const [notes, setNotes] = useState([
@@ -29,6 +31,8 @@ const App = () => {
   };
   return (
     <div className="container">
+      <Title />
+      <Search />
       <NotesList
         notes={notes}
         handleAddNote={addNote}
