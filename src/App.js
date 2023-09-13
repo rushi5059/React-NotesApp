@@ -6,30 +6,31 @@ import Title from "./components/Title";
 
 const App = () => {
   const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      text: "First text",
-      date: "13/12/2013",
-    },
-    {
-      id: nanoid(),
-      text: "Second text",
-      date: "14/12/2013",
-    },
-    {
-      id: nanoid(),
-      text: "Third text",
-      date: "15/12/2013",
-    },
-    {
-      id: nanoid(),
-      text: "Forth text",
-      date: "16/12/2013",
-    },
+    // {
+    //   id: nanoid(),
+    //   text: "First text",
+    //   date: "13/12/2013",
+    // },
+    // {
+    //   id: nanoid(),
+    //   text: "Second text",
+    //   date: "14/12/2013",
+    // },
+    // {
+    //   id: nanoid(),
+    //   text: "Third text",
+    //   date: "15/12/2013",
+    // },
+    // {
+    //   id: nanoid(),
+    //   text: "Forth text",
+    //   date: "16/12/2013",
+    // },
   ]);
 
-  const [darkMode, setDarkMode] = useState(false);
   const [searchText, setSearchText] = useState("");
+
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
