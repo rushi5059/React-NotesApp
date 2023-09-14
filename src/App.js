@@ -5,43 +5,67 @@ import Search from "./components/search";
 import Title from "./components/Title";
 
 const App = () => {
-  const [notes, setNotes] = useState([
-    // {
-    //   id: nanoid(),
-    //   text: "First text",
-    //   date: "13/12/2013",
-    // },
-    // {
-    //   id: nanoid(),
-    //   text: "Second text",
-    //   date: "14/12/2013",
-    // },
-    // {
-    //   id: nanoid(),
-    //   text: "Third text",
-    //   date: "15/12/2013",
-    // },
-    // {
-    //   id: nanoid(),
-    //   text: "Forth text",
-    //   date: "16/12/2013",
-    // },
-  ]);
+  // GPT
 
-  const [searchText, setSearchText] = useState("");
-
-  const [darkMode, setDarkMode] = useState(false);
+  const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
+    const savedNotes = window.JSON.parse(
+      window.localStorage.getItem("react-notes-app-data")
+    );
     if (savedNotes) {
       setNotes(savedNotes);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
+    window.localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
   }, [notes]);
+  // GPT END
+
+  // my code
+  // const [notes, setNotes] = useState([
+  //   // {
+  //   //   id: nanoid(),
+  //   //   text: "First text",
+  //   //   date: "13/12/2013",
+  //   // },
+  //   // {
+  //   //   id: nanoid(),
+  //   //   text: "Second text",
+  //   //   date: "14/12/2013",
+  //   // },
+  //   // {
+  //   //   id: nanoid(),
+  //   //   text: "Third text",
+  //   //   date: "15/12/2013",
+  //   // },
+  //   // {
+  //   //   id: nanoid(),
+  //   //   text: "Forth text",
+  //   //   date: "16/12/2013",
+  //   // },
+  // ]);
+
+  const [searchText, setSearchText] = useState("");
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  // const [notes1, savedNotes] = useState(true);
+
+  // useEffect(() => {
+  //   const savedNotes = window.JSON.parse(
+  //     localStorage.getItem("react-notes-app-data")
+  //   );
+  //   if (savedNotes) {
+  //     setNotes(savedNotes);
+  //     // console.log(savedNotes);
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
+  // }, [notes]);
 
   const addNote = (text) => {
     console.log(text);
@@ -66,7 +90,8 @@ const App = () => {
         <Search handleSearchNote={setSearchText} />
         <NotesList
           notes={notes.filter((note) =>
-            note.text.toLowerCase().includes(searchText)
+            // note.text.toLowerCase().includes(searchText)
+            note.text.toLowerCase().includes(searchText.toLowerCase())
           )}
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
